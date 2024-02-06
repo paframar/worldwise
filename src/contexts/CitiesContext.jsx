@@ -6,8 +6,8 @@ import {
   useCallback,
 } from "react";
 
-// const BASE_URL = "https://worldwise-backend-fa17304ce713.herokuapp.com/api/cities"
-const BASE_URL = "http://localhost:9000"
+// const BASE_URL = "https://worldwise-backend-fa17304ce713.herokuapp.com"
+const BASE_URL = "http://localhost:3000/cities"
 
 const CitiesContext = createContext();
 
@@ -72,7 +72,7 @@ function CitiesProvider({ children }) {
       dispatch({ type: "loading" });
 
       try {
-        const res = await fetch(`${BASE_URL}/api/cities`);
+        const res = await fetch(`${BASE_URL}`);
         const data = await res.json();
         dispatch({ type: "cities/loaded", payload: data });
       } catch {
@@ -92,7 +92,7 @@ function CitiesProvider({ children }) {
       dispatch({ type: "loading" });
 
       try {
-        const res = await fetch(`${BASE_URL}/api/cities/${id}`);
+        const res = await fetch(`${BASE_URL}/${id}`);
         const data = await res.json();
         dispatch({ type: "city/loaded", payload: data });
       } catch {
@@ -109,7 +109,7 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      const res = await fetch(`${BASE_URL}/api/cities`, {
+      const res = await fetch(`${BASE_URL}`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
@@ -131,7 +131,7 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      await fetch(`${BASE_URL}/api/cities/${id}`, {
+      await fetch(`${BASE_URL}/${id}`, {
         method: "DELETE",
       });
 
