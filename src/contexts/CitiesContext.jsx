@@ -6,7 +6,7 @@ import {
   useCallback,
 } from "react";
 
-const BASE_URL = "https://worldwise-backend-fa17304ce713.herokuapp.com/cities"
+const BASE_URL = "https://worldwise-backend-xz0t.onrender.com/cities" // render
 // const BASE_URL = "http://localhost:5001/cities"
 
 const CitiesContext = createContext();
